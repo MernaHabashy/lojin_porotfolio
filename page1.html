@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lojin Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        background: #d0d5df;
+        color: #0a205f;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 10%;
+        background: #ffffff;
+        border-bottom: 1px solid #D1D5DB;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    header h1 {
+        font-size: 20px;
+        color: #0a205f;
+    }
+
+    nav a {
+        margin-left: 18px;
+        text-decoration: none;
+        color: #0a205f;
+        font-weight: 500;
+    }
+
+    nav a:hover {
+        opacity: 0.7;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 100px 10%;
+    }
+
+    .hero h2 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        color: #374151;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background: #0a205f;
+        color: white;
+        margin: 5px;
+        display: inline-block;
+        text-decoration: none;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+    }
+
+    section {
+        padding: 70px 10%;
+    }
+
+    h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    /* ABOUT */
+    .about {
+        display: flex;
+        justify-content: center;
+    }
+
+    .about p {
+        max-width: 800px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 14px;
+        border: 1px solid #D1D5DB;
+        box-shadow: 0 8px 20px rgba(15, 31, 77, 0.05);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .skill-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 14px;
+        border: 1px solid #D1D5DB;
+        box-shadow: 0 8px 20px rgba(15, 31, 77, 0.05);
+        transition: 0.3s;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px rgba(10, 32, 95, 0.12);
+    }
+
+    .skill-card h4 {
+        margin-bottom: 10px;
+    }
+
+    .skill-card p {
+        color: #374151;
+        font-size: 14px;
+    }
+
+    /* PROJECTS */
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 14px;
+        border: 1px solid #D1D5DB;
+        box-shadow: 0 8px 20px rgba(15, 31, 77, 0.05);
+        transition: 0.3s;
+    }
+
+    .featured-project{
+    border:2px solid #0a205f;
+    position:relative;
+}
+
+.featured-project::before{
+    content:"★ Featured";
+    position:absolute;
+    top:-12px;
+    right:15px;
+
+    background:#0a205f;
+    color:white;
+
+    padding:4px 10px;
+    border-radius:20px;
+
+    font-size:12px;
+    font-weight:600;
+}
+.project-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 15px;
+
+    background:#0a205f;
+    color:white;
+
+    text-decoration:none;
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+.project-btn:hover{
+    opacity:.85;
+}
+
+  .card:hover,
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.02);
+
+    border-color: #0a205f;
+
+    box-shadow:
+        0 0 15px rgba(10,32,95,.25),
+        0 0 30px rgba(10,32,95,.15),
+        0 20px 35px rgba(10,32,95,.15);
+}
+
+    .card ul {
+        margin-top: 10px;
+        padding-left: 18px;
+        color: #374151;
+    }
+
+    /* CONTACT */
+    .contact-card {
+        max-width: 500px;
+    }
+
+    .contact-card a {
+        color: #0a205f;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .contact-card a:hover {
+        text-decoration: underline;
+    }
+    .card,
+.skill-card {
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: #0a205f;
+    box-shadow:
+        0 0 20px rgba(10, 32, 95, 0.30),
+        0 0 40px rgba(10, 32, 95, 0.15);
+}
+
+
+/* uyuyu */
+/* Container بتاع المشروع */
+.project {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* عنوان المشروع */
+.project-title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* صندوق الصور */
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* كل صورة */
+.project-images img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* hover effect */
+.project-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-images {
+    grid-template-columns: 1fr;
+  }
+
+  .project-images img {
+    height: 220px;
+  }
+}
+    
+
+    /* Ripple */
+    @keyframes ripple {
+        from {
+            transform: scale(0);
+            opacity: 1;
+        }
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+
+
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Lojin</h1>
+<nav>
+    <a href="#home"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <h2>Lojin Wael</h2>
+    <p>Data Scientist</p>
+    <p>School of Artificial Intelligence | BUA</p>
+    <p>2023 - 2027</p>
+
+    <a href="#projects" class="btn">View My Projects</a>
+    <a href="#contact" class="btn">Contact Me</a>
+    <a href="cv.pdf" target="_blank" class="btn">Download CV</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h3>About Me</h3>
+    <div class="about">
+        <p>
+            Computer Science student specializing in Artificial Intelligence, Machine Learning, and Software Development.
+            Experienced in building intelligent systems for healthcare, deep learning, databases, and bioinformatics.
+            Passionate about solving real-world problems through AI-driven and scalable software solutions.
+        </p>
+    </div>
+</section>
+
+<!-- SKILLS --><section id="skills">
+    <h3>Skills</h3>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <h4>AI & Machine Learning</h4>
+            <p>
+                Learning how machines learn from data, focusing on algorithms and model logic from the ground up.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h4>Data Analysis</h4>
+            <p>
+                Cleaning, processing, and visualizing data to discover meaningful patterns and insights.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h4>Pattern Recognition</h4>
+            <p>
+                Identifying hidden structures and trends within raw datasets.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h4>Python Engineering</h4>
+            <p>
+                Using Python to implement algorithms with clean, structured, and readable code.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <h4>Programming Languages</h4>
+            <p>
+                Python • C++ • Java • HTML • CSS • JavaScript
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS --><section id="projects">
+    <h3>Projects</h3>
+
+    <div class="projects">
+
+        <!-- Product System -->
+        <div class="card">
+            <h4>Product Management System</h4>
+            <p>
+                Built a desktop-based product management system using Python and OOP principles.
+                The system manages products and categories with a Tkinter-based GUI.
+            </p>
+
+            <p><strong>Tech Stack:</strong> Python • OOP • Tkinter</p>
+
+            <ul>
+                <li>Product & category management</li>
+                <li>OOP structure (classes, encapsulation)</li>
+                <li>GUI using Tkinter</li>
+            </ul>
+        </div>
+
+        <!-- HealthMate -->
+        <div class="card">
+            <h4>HealthMate (Featured Project)</h4>
+            <p>
+                AI-powered clinical support system designed to assist in medical data interpretation and decision-making.
+                Uses multi-agent architecture to generate structured insights from unstructured healthcare data.
+            </p>
+        </div>
+
+        <!-- DNA -->
+        <div class="card">
+            <h4>DNA Sequence Analysis</h4>
+            <p>
+                Performed DNA sequence alignment and mutation detection using bioinformatics techniques in R
+                to analyze genetic variations.
+            </p>
+
+            <p><strong>Tech Stack:</strong> R • Bioinformatics</p>
+        </div>
+
+        <!-- ML -->
+        <div class="card">
+            <h4>Machine Learning Models</h4>
+            <p>
+                Applied supervised and unsupervised machine learning techniques including regression,
+                classification, clustering, and feature reduction using Scikit-learn.
+            </p>
+
+            <p><strong>Tech Stack:</strong> Python • Scikit-learn</p>
+        </div>
+
+        <!-- DL -->
+        <div class="card">
+            <h4>Deep Learning Project</h4>
+            <p>
+                Developed neural network models using PyTorch for classification tasks,
+                focusing on optimization, training, and performance improvement.
+            </p>
+
+            <p><strong>Tech Stack:</strong> Python • PyTorch</p>
+        </div>
+        
+    </div>
+
+</section>
+<div class="project">
+
+  <h2 class="project-title">HealthMate (Featured Project)</h2>
+
+  <div class="project-images">
+    <img src="C:\lojin protofolio\pic3.jpeg" alt="project image 1">
+    <img src="C:\lojin protofolio\pic2.jpeg" alt="project image 2">
+    <img src="C:\lojin protofolio\pic1.jpeg" alt="project image 3">
+  </div>
+
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h3>Contact Me</h3>
+
+    <div class="card contact-card">
+
+        <p>📞 Phone: <a href="tel:+201013813016">Call Me</a></p>
+
+        <p>📧 Email: <a href="mailto:Wlogy0843@gmail.com">Send Email</a></p>
+
+        <p>🔗 LinkedIn:
+            <a href="https://www.linkedin.com" target="_blank">My LinkedIn</a>
+        </p>
+
+        <p>💻 GitHub:
+            <a href="https://github.com" target="_blank">My GitHub</a>
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Lojin Portfolio | All Rights Reserved
+</footer>
+
+<script>
+document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+        const ripple = document.createElement("span");
+
+        ripple.style.position = "absolute";
+        ripple.style.width = "100px";
+        ripple.style.height = "100px";
+        ripple.style.background = "rgba(255,255,255,0.4)";
+        ripple.style.borderRadius = "50%";
+        ripple.style.left = e.offsetX + "px";
+        ripple.style.top = e.offsetY + "px";
+        ripple.style.transform = "translate(-50%, -50%)";
+        ripple.style.animation = "ripple 0.6s linear";
+
+        this.appendChild(ripple);
+
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+</script>
+
+</body>
+</html>
